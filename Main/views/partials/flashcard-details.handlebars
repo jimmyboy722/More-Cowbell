@@ -1,0 +1,21 @@
+{{!-- Basic flashcard layour --}}
+<section class="card">
+    <a href="/flashcard/{{id}}">
+        <header>{{title}}</header>
+
+        <div class="card-body">
+            {{!-- Cow photo --}}
+            <img src="/images/{{filename}}" alt="{{description}}">
+            <h3>{{cow}}</h3>
+
+            {{!-- Cow facts --}}
+            <ul>
+                <li>{{fact_1}}</li>
+                <li>{{fact_2}}</li>
+                <li>{{fact_3}}</li>
+                <li>{{fact_4}}</li>
+                <li>{{fact_5}}</li>
+            </ul>
+        </div>
+    </a>
+</section>

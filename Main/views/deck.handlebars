@@ -1,0 +1,20 @@
+{{!-- Quiz name section --}}
+<section class="container">
+    <h3 class="deck-name">{{deck.name}}</h3>
+    <h4>Moo-velous Facts</h4>
+    <h4> An "udderly" amazing quiz!</h4>
+
+    {{#if loggedIn}}
+
+{{!-- Flashcard --}}
+    <section class="flex-row justify-center">
+        {{#each deck.flashcards as |flashcard|}}
+        {{> flashcard-details}}
+        {{/each}}
+    </section>
+</section>
+
+{{!-- Must-login notifier --}}
+{{else}}
+<a href="/login">You must login before you can play!</a>
+{{/if}}
