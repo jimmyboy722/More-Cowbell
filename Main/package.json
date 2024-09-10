@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "mathjs": "^13.1.1",
-    "tailwind": "^4.0.0"
+    "tailwind": "^4.0.0",
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.10"
