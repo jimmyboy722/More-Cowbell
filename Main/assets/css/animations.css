@@ -1,0 +1,11 @@
+.moreCowbell {
+    width: 500px;
+    height: 250px;
+    transition: left, 5s;
+}
+
+.comeSoFar {
+    width: 500px;
+    height: 250px;
+    transition: right, 5s;
+}
