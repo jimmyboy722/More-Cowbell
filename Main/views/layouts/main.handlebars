@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moo-velous Facts</title>
     <link rel="stylesheet" href="./output.css">
+    <link rel="animations" href="./animations.css">
 </head>
 
 <body>
@@ -33,30 +34,6 @@
             {{{body}}}
         </div>
         <br>
-
-    {{!-- Multiple choice options --}}
-    
-        <div class="multiple-choice" id="answers">
-            <input type="radio" id="{{flashcard.answer}}" name="option_a" value="{{flashcard.choice}}">
-                <label for="{{flashcard.choice}}">{{flashcard.choice}}</label><br>
-            <input type="radio" id="{{flashcard.answer}}" name="option_b" value="{{flashcard.choice}}">
-                <label for="{{flashcard.choice}}">{{flashcard.choice}}</label><br>
-            <input type="radio" id="{{flashcard.answer}}" name="option_c" value="{{flashcard.choice}}">
-                <label for="{{flashcard.choice}}">{{flashcard.choice}}</label><br>
-            <input type="radio" id="{{flashcard.answer}}" name="option_d" value="{{flashcard.choice}}">
-                <label for="{{flashcard.choice}}">{{flashcard.choice}}</label><br>
-            <script src="/Main/routes/api/flashcardAnswers/"></script>
-        </div>
-        <br>
-
-    {{!-- Random next flashcard --}}
-        
-        <div id="randomFlashcard">
-            <input type="flashcard" id="flashcardInput" multiple>
-            <button id="randomFlashcardButton">Next Question!</button>
-            <p id="selectedFlashcard"></p>
-            <script src="/Main/routes/api/randomCard.js"></script>
-        </div>
     </main>
 
     {{#if loggedIn}}

@@ -1,4 +1,4 @@
-const { Deck } = require('../models');
+const { mathJS } = require('../assets/js');
 
 //User high scores listed - needs editing/refinement
 const deckData = [
@@ -29,6 +29,6 @@ const deckData = [
 ];
 
 //setting data
-const seedDeck = () => Deck.bulkCreate(deckData);
+const seedDeck = () => mathJS.bulkCreate(deckData);
 
-module.exports = seedDeck
+module.exports = seedDeck;
