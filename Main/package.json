@@ -5,5 +5,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.10"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
