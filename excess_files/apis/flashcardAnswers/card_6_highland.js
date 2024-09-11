@@ -1,12 +1,14 @@
-//Array of correct/incorrect answers for Card 2
+/*
 
-let correctAnswer = ["Angus"];
+//Array of correct/incorrect answers for Card 6
+
+let correctAnswer = ["Scottish Highland"];
 let wrongAnswers = [
     "Shorthorn Durham Cattle",
     "Brahman Cattle",
     "Texas Longhorn",
     "Watausi",
-    "Scottish Highland",
+    "Angus",
     "Piedmontese",
     "Holstein",
     "Dexter",

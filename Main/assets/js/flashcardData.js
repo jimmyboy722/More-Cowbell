@@ -1,90 +1,100 @@
-// LEFT IT EMPTY TO FILL IN THE ROUTE
-const { Flashcard } = require('');
 
+//Flashcard data
 const FlashcardData = [
   {
+    Card: card_1,
     Name: 'Durham Cattle',
     Origin: 'Northeast England',
     CoatType: 'Short',
     Color: 'Red and White',
-    AvgWeight: 1300 'lbs',
-    Purpose:'Multipurpose',
+    AvgWeight: '1300 lbs',
+    Purpose: 'Multipurpose',
       
   },
   {
+    Card: card_2,
     Name: 'Angus',
     Origin: 'Scotland',
     CoatType: 'Short',
-    Color:'Black',
-    AvgWeight: 1200 'lbs',
-    Purpose: 'Meat', 
+    Color: 'Black',
+    AvgWeight: '1200 lbs',
+    Purpose: 'Meat',
   },
   {
+    Card: card_3,
     Name: 'Brahman Cattle',
     Origin: 'India',
     CoatType: 'Short',
-    Color:'Light to dark Gray',
-    AvgWeight: 2000 'lbs',
-    Purpose:'Meat',
+    Color: 'Light to dark Gray',
+    AvgWeight: '2000 lbs',
+    Purpose: 'Meat',
   },
   {
+    Card: card_4,
     Name: 'Texas Longhorn',
     Origin: 'USA',
     CoatType: 'Short',
-    Color:'Black & Red',
-    AvgWeight: 1100 'lbs',
+    Color: 'Black & Red',
+    AvgWeight: '1100 lbs',
     Purpose: 'High Fertility',
   },
   {
+    Card: card_5,
     Name: 'Watusi',
     Origin: 'East Africa',
     CoatType: 'Short',
-    Color:'Brown,Red,black',
-    AvgWeight: 1100 'lbs',
-    Purpose: 'Multipurpose', 
+    Color: 'Brown,Red,black',
+    AvgWeight: '1100 lbs',
+    Purpose: 'Multipurpose',
   },
   {
+    Card: card_6,
     Name: 'Scottish Highland',
     Origin: 'Scottland',
     CoatType: 'Thick Double Coat',
-    Color:'Red, Ginger, Black',
-    AvgWeight: 1150 'lbs',
-    Purpose:'Multipurpose',
+    Color: 'Red, Ginger, Black',
+    AvgWeight: '1150 lbs',
+    Purpose: 'Multipurpose',
   },
   {
+    Card: card_7,
     Name: 'Piedmontese',
     Origin: 'Italy',
     CoatType: 'Short',
     Color: 'White',
-    AvgWeight:1300 'lbs',
+    AvgWeight: '1300 lbs',
     Purpose: 'Meat',
   },
   {
+    Card: card_8,
     Name: 'Holstien',
     Origin: 'Holland',
     CoatType: 'Short',
-    Color:'Black and White',
-    AvgWeight:1500 'lbs',
+    Color: 'Black and White',
+    AvgWeight: '1500 lbs',
     Purpose: 'Milk',
   },
   {
+    Card: card_9,
     Name: 'Dexter', 
     Origin: 'Southern Ireland',
     CoatType: 'Short Coat', 
     Color: 'Black',
-    AvgWeight: 800 'lbs' ,
+    AvgWeight: '800 lbs' ,
     Purpose: 'Meat , milk',
   },
   {
+    Card: card_10,
     Name: 'Gelbuieh', 
     Origin: 'Baravia , Germany',
     CoatType: 'Short Coat',
-    Color:'Red',
-    AvgWeight: 1382 'lbs',
-    Purpose:'Meat,Milk',
+    Color: 'Red',
+    AvgWeight: '1382 lbs',
+    Purpose: 'Meat, milk',
   },
-
 ];
+
+
 
 //Multiple Choice Connector
 const option_a = document.getElementByName('option_a');
@@ -94,6 +104,7 @@ const option_d = document.getElementByName('option_d');
 
 //ability to link to correct/wrong indicator
 
+/*
 const fs = require('fs');
 const path = require('path');
 
@@ -102,6 +113,7 @@ const comeSoFar = path.join(__dirname, '../comeSoFar.js');
 
 const logFerrell = fs.createWriteStream(willFerrell, { flags: 'a' });
 const logSoFar = fs.createWriteStream(comeSoFar, { flags: 'a'});
+*/
 
 //event listeners for buttons
 
@@ -138,6 +150,8 @@ option_d.addEventListener('click', function() {
 })
 
 
+
+
 //Randomly selects new card upon being clicked
 document.getElementById('randomFlashcardButton').addEventListener('click', function() {
   let input = document.getElementById('flashcardInput');
@@ -156,42 +170,114 @@ document.getElementById('randomFlashcardButton').addEventListener('click', funct
 });
 
 
+
+
 //Flashcards
-class flashcardDeck {
-  //Card 1
-  innerClass = 
-  
-  class card_1 {
+class Flashcard {
+  constructor(cardIndex) {
+    const cardData = FlashcardData[cardIndex];
+    this.card = cardData.card;
+    this.correctAnswer = cardData.card;
+    this.wrongAnswers = this.getWrongAnswers(cardIndex);
+    this.randomAnswers = this.getRandomAnswers(this.wrongAnswers, this.correctAnswer);
+      
+  }
 
-    let correctAnswer1 = FlashcardData[0]
-    let wrongAnswers1 = FlashcardData[1-9]
-    let randomAnswers1 = (getRandomAnswers1(wrongAnswers1, 3), correctAnswer1)
+  getWrongAnswers(cardIndex) {
+    const wrongAnswers = FlashcardData
+    .filter((_, index) => index !== cardIndex)
+    .map(card => card.origin);
+  return wrongAnswers;
+  }
 
-    console.log(correctAnswer1)
-    console.log(wrongAnswers1)
-
-    function fisherYatesShuffle1(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
+  fisherYatesShuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
     }
+    return arr;
+  }
 
-    function getRandomAnswers1(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle1(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
+  getRandomAnswers(wrongAnswers, correctAnswer, numChoices = 4) {
+    const allAnswers = [...wrongAnswers, correctAnswer];
+    const shuffledArray = this.fisherYatesShuffle(allAnswers);
+    return shuffledArray.slice(0, numChoices);
+  }
+}
 
+
+//Card 1
+const card_1 = new Flashcard(0);
+
+console.log(card_1);
+console.log(card_1.randomAnswers);
+
+//Card 2
+const card_2 = new Flashcard(1);
+
+console.log(card_2);
+console.log(card_2.randomAnswers);
+
+//Card 3
+const card_3 = new Flashcard(2);
+
+console.log(card_3);
+console.log(card_3.randomAnswers);
+
+//Card 4
+const card_4 = new Flashcard(3);
+
+console.log(card_4);
+console.log(card_4.randomAnswers);
+
+//Card 5
+const card_5 = new Flashcard(4);
+
+console.log(card_5);
+console.log(card_5.randomAnswers);
+
+//Card 6
+const card_6 = new Flashcard(5);
+
+console.log(card_6);
+console.log(card_6.randomAnswers);
+
+//Card 7
+const card_7 = new Flashcard(6);
+
+console.log(card_7);
+console.log(card_7.randomAnswers);
+
+//Card 8
+const card_8 = new Flashcard(7);
+
+console.log(card_8);
+console.log(card_8.randomAnswers);
+
+//Card 9
+const card_9 = new Flashcard(8);
+
+console.log(card_9);
+console.log(card_9.randomAnswers);
+
+//Card 10
+const card_10 = new Flashcard(9);
+
+console.log(card_10);
+console.log(card_10.randomAnswers);
+
+
+
+
+/*
     console.log("Guess which cow this is!");
     randomAnswers1.forEach((choice, index) => {
         console.log(`${index + 1}, ${choice}`);
     });
   }
+*/
 
-  console.log(card_1);
-
-
+/*
   //Card 2
   class card_2 {
 

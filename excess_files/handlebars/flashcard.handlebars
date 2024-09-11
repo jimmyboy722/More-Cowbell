@@ -1,7 +1,9 @@
+{{!--}}
+
 {{!-- Flashcard - will show if logged in --}}
 {{#if loggedIn}}
 <section class="flashcard">
-    <img src="/images/{{flashcard.filename}}" alt="{{flashcard.description}}">
+    <img src="/Main/assets/images/{{flashcard.filename}}" alt="{{flashcard.description}}">
     <div class="flashcard-details">
         <h3>{{flashcard.title}}</h3>
         <p>{{flashcard.cow}}</p>
@@ -11,3 +13,4 @@
 {{else}}
 <a href="/login">You must login before you can play!</a>
 {{/if}}
+

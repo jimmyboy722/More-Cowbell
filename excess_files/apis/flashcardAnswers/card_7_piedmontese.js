@@ -1,16 +1,18 @@
-//Array of correct/incorrect answers for Card 10
+/*
 
-let correctAnswer = ["Gelbuieh"];
+//Array of correct/incorrect answers for Card 7
+
+let correctAnswer = ["Piedmontese"];
 let wrongAnswers = [
     "Shorthorn Durham Cattle",
     "Brahman Cattle",
     "Texas Longhorn",
     "Watausi",
     "Scottish Highland",
-    "Piedmontese",
+    "Angus",
     "Holstein",
     "Dexter",
-    "Angus"
+    "Gelbuieh"
 ];
 
 console.log(correctAnswer);

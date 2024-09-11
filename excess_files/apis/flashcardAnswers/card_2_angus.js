@@ -1,6 +1,8 @@
-//Array of correct/incorrect answers for Card 9
+/*
 
-let correctAnswer = ["Dexter"];
+//Array of correct/incorrect answers for Card 2
+
+let correctAnswer = ["Angus"];
 let wrongAnswers = [
     "Shorthorn Durham Cattle",
     "Brahman Cattle",
@@ -9,7 +11,7 @@ let wrongAnswers = [
     "Scottish Highland",
     "Piedmontese",
     "Holstein",
-    "Angus",
+    "Dexter",
     "Gelbuieh"
 ];
 

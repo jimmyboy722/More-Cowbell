@@ -1,3 +1,5 @@
+/*
+
 //Array of correct/incorrect answers for Card 5
 
 let correctAnswer = ["Watausi"];
