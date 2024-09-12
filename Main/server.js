@@ -1,21 +1,20 @@
 //setting required const
-const express = require('express');
+const express = require("express");
 
-const routes = require('./routes');
-const sequelize = require('./config/connection');
+const routes = require("./routes");
+const sequelize = require("./config/connection");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 //setting app
 app.use(express.json());
-app.use(express.urlencoded({ extended : true }));
+app.use(express.urlencoded({ extended: true }));
 //app.use(routes);
 
 app.use(routes);
 
-
 //making Sequelize work with server
-sequelize.sync({ force : false}).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log("Now listening"));
 });
