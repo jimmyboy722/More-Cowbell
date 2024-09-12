@@ -1,6 +1,11 @@
 DROP DATABASE IF EXISTS users_db;
 CREATE DATABASE users_db;
+
 -- CREATING THE DATABASE FOR USERS --
 \c users_db;
+
+DROP DATABASE IF EXISTS cows_db;
+CREATE DATABASE cows_db;
+\c cows_db;
 -- CONNECTING TO THE DB --
 

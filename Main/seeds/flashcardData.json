@@ -1,0 +1,93 @@
+[
+    {
+        "Card": "card_1",
+        "Name": "Durham Cattle",
+        "Origin": "Northeast England",
+        "CoatType": "Short",
+        "Color": "Red and White",
+        "AvgWeight": "1300 lbs",
+        "Purpose": "Multipurpose"
+          
+      },
+      {
+        "Card": "card_2",
+        "Name": "Angus",
+        "Origin": "Scotland",
+        "CoatType": "Short",
+        "Color": "Black",
+        "AvgWeight": "1200 lbs",
+        "Purpose": "Meat"
+      },
+      {
+        "Card": "card_3",
+        "Name": "Brahman Cattle",
+        "Origin": "India",
+        "CoatType": "Short",
+        "Color": "Light to dark Gray",
+        "AvgWeight": "2000 lbs",
+        "Purpose": "Meat"
+      },
+      {
+        "Card": "card_4",
+        "Name": "Texas Longhorn",
+        "Origin": "USA",
+        "CoatType": "Short",
+        "Color": "Black & Red",
+        "AvgWeight": "1100 lbs",
+        "Purpose": "High Fertility"
+      },
+      {
+        "Card": "card_5",
+        "Name": "Watusi",
+        "Origin": "East Africa",
+        "CoatType": "Short",
+        "Color": "Brown, Red, Black",
+        "AvgWeight": "1100 lbs",
+        "Purpose": "Multipurpose"
+      },
+      {
+        "Card": "card_6",
+        "Name": "Scottish Highland",
+        "Origin": "Scotland",
+        "CoatType": "Thick Double Coat",
+        "Color": "Ginger, Red, Black",
+        "AvgWeight": "1150 lbs",
+        "Purpose": "Multipurpose"
+      },
+      {
+        "Card": "card_7",
+        "Name": "Piedmontese",
+        "Origin": "Italy",
+        "CoatType": "Short",
+        "Color": "White",
+        "AvgWeight": "1300 lbs",
+        "Purpose": "Meat"
+      },
+      {
+        "Card": "card_8",
+        "Name": "Holstein",
+        "Origin": "Holland",
+        "CoatType": "Short",
+        "Color": "Black and White",
+        "AvgWeight": "1500 lbs",
+        "Purpose": "Milk"
+      },
+      {
+        "Card": "card_9",
+        "Name": "Dexter",
+        "Origin": "Southern Ireland",
+        "CoatType": "Short", 
+        "Color": "Black",
+        "AvgWeight": "800 lbs",
+        "Purpose": "Meat, Milk"
+      },
+      {
+        "Card": "card_10",
+        "Name": "Gelbuieh", 
+        "Origin": "Bavaria",
+        "CoatType": "Short",
+        "Color": "Red",
+        "AvgWeight": "1382 lbs",
+        "Purpose": "Meat, Milk"
+      }
+]
