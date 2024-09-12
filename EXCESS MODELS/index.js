@@ -1,3 +1,5 @@
+/*
+
 //settings consts
 const User = require("../Main/models/User");
 const Deck = require("./Deck");
@@ -13,3 +15,5 @@ Flashcard.belongsTo(Deck, {
 });
 
 module.exports = { User, Deck, Flashcard };
+
+*/

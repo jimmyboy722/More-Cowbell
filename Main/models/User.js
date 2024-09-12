@@ -1,17 +1,17 @@
 //setting consts
-//const { Model, DataTypes } = require("sequelize");
-//const bcrypt = require("bcrypt");
-//const sequelize = require("./config/connection");
-//const { validate } = require("../config/connection");
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("./config/connection");
+const { validate } = require("../config/connection");
 
 //check password
-//class User extends Model {
- // checkPassword(loginPw) {
- //   return bcrypt.compareSync(loginPw, this.password);
- // }
-//}
+class User extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
-//User.init(
+User.init(
   //user info
   {
     id: {
@@ -58,6 +58,6 @@
     underscored: true,
     modelName: "user",
   }
-//);
+);
 
-//module.exports = User;
+module.exports = User;

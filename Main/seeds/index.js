@@ -1,18 +1,19 @@
 //setting consts
 const sequelize = require('../config/connection');
-const seedDeck = require('./deckData');
-const seedFlashcards = require('./flashcardData');
+const Card = require('../models/Flashcard');
+const seedFlashcards = require('./flashcardData.json');
 
 //setting data to put into individual cards and deck, async so it doesn't hold up site
-const seedAll = async () => {
+const seedDatabse = async () => {
     await sequelize.sync({ force : true });
 
-    await seedDeck();
-
-    await seedFlashcards();
+    await Card.bulkCreate(seedFlashcards, {
+        individualHooks: true,
+        returning: true
+    });
 
     process.exit(0);
 };
 
 //sending all data out to its minions
-seedAll();
+seedDatabse();
