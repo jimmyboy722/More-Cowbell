@@ -1,5 +1,5 @@
 export function comeSoFar() {
-    console.log()
+    console.log();
 }
 
 function comeSoFar() {

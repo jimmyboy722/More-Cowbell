@@ -94,6 +94,7 @@ const FlashcardData = [
   },
 ];
 
+console.log(FlashcardData);
 
 
 //Multiple Choice Connector
@@ -102,52 +103,97 @@ const option_b = document.getElementByName('option_b');
 const option_c = document.getElementByName('option_c');
 const option_d = document.getElementByName('option_d');
 
-//ability to link to correct/wrong indicator
 
-/*
-const fs = require('fs');
-const path = require('path');
-
-const willFerrell = path.join(__dirname, '../correctAnswer.js');
-const comeSoFar = path.join(__dirname, '../comeSoFar.js');
-
-const logFerrell = fs.createWriteStream(willFerrell, { flags: 'a' });
-const logSoFar = fs.createWriteStream(comeSoFar, { flags: 'a'});
-*/
 
 //event listeners for buttons
 
 option_a.addEventListener('click', function() {
-    if (true) {
-        import { moreCowbell } from '/Main/assets/js/correctAnswer.js'; 
+  const importModule = condition => {
+    if ( condition ) {
+      return import('/Main/assets/js/correctAnswer.js');
     } else {
-        import { comeSoFar } from '/Main/assets/js/comeSoFar.js';
+      return import('/Main/assets/js/comeSoFar.js');
     }
-})
+  };
+
+  importModule(true)
+    .then(module => {
+      if (module.moreCowbell) {
+        module.moreCowbell();
+      } else if (module.comeSoFar) {
+        module.comeSoFar();
+      }
+    })
+    .catch(err => {
+      console.error("Please try again", err);
+    });
+});
 
 option_b.addEventListener('click', function() {
-  if (true) {
-      import { moreCowbell } from '/Main/assets/js/correctAnswer.js'; 
-  } else {
-      import { comeSoFar } from '/Main/assets/js/comeSoFar.js';
-  }
-})
+  const importModule = condition => {
+    if ( condition ) {
+      return import('/Main/assets/js/correctAnswer.js');
+    } else {
+      return import('/Main/assets/js/comeSoFar.js');
+    }
+  };
+
+  importModule(true)
+    .then(module => {
+      if (module.moreCowbell) {
+        module.moreCowbell();
+      } else if (module.comeSoFar) {
+        module.comeSoFar();
+      }
+    })
+    .catch(err => {
+      console.error("Please try again", err);
+    });
+});
 
 option_c.addEventListener('click', function() {
-  if (true) {
-      import { moreCowbell } from '/Main/assets/js/correctAnswer.js'; 
-  } else {
-      import { comeSoFar } from '/Main/assets/js/comeSoFar.js';
-  } return
-})
+  const importModule = condition => {
+    if ( condition ) {
+      return import('/Main/assets/js/correctAnswer.js');
+    } else {
+      return import('/Main/assets/js/comeSoFar.js');
+    }
+  };
+
+  importModule(true)
+    .then(module => {
+      if (module.moreCowbell) {
+        module.moreCowbell();
+      } else if (module.comeSoFar) {
+        module.comeSoFar();
+      }
+    })
+    .catch(err => {
+      console.error("Please try again", err);
+    });
+});
 
 option_d.addEventListener('click', function() {
-  if (true) {
-      import { moreCowbell } from '/Main/assets/js/correctAnswer.js'; 
-  } else {
-      import { comeSoFar } from '/Main/assets/js/comeSoFar.js';
-  }
-})
+  const importModule = condition => {
+    if ( condition ) {
+      return import('/Main/assets/js/correctAnswer.js');
+    } else {
+      return import('/Main/assets/js/comeSoFar.js');
+    }
+  };
+
+  importModule(true)
+    .then(module => {
+      if (module.moreCowbell) {
+        module.moreCowbell();
+      } else if (module.comeSoFar) {
+        module.comeSoFar();
+      }
+    })
+    .catch(err => {
+      console.error("Please try again", err);
+    });
+});
 
 
 
@@ -266,310 +312,3 @@ const card_10 = new Flashcard(9);
 console.log(card_10);
 console.log(card_10.randomAnswers);
 
-
-
-
-/*
-    console.log("Guess which cow this is!");
-    randomAnswers1.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-*/
-
-/*
-  //Card 2
-  class card_2 {
-
-    let correctAnswer2 = FlashcardData[1]
-    let wrongAnswers2 = FlashcardData[0, 2-9]
-    let randomAnswers2 = (getRandomAnswers2(wrongAnswers2, 3), correctAnswer2)
-
-    console.log(correctAnswer2)
-    console.log(wrongAnswers2)
-
-    function fisherYatesShuffle1(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswers2(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle2(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswers2.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_2);
-
-
-  //Card 3
-  class card_3 {
-
-    let correctAnswer3 = FlashcardData[2]
-    let wrongAnswers3 = FlashcardData[0-1, 3-9]
-    let randomAnswers3 = (getRandomAnswers3(wrongAnswers3, 3), correctAnswer3)
-
-    console.log(correctAnswer3)
-    console.log(wrongAnswers3)
-
-    function fisherYatesShuffle3(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswers3(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle3(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswers3.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_3);
-
-
-  //Card 4
-  class card_4 {
-
-    let correctAnswer4 = FlashcardData[3]
-    let wrongAnswer4 = FlashcardData[0-2, 4-9]
-    let randomAnswer4 = (getRandomAnswer4(wrongAnswer4, 3), correctAnswer4)
-
-    console.log(correctAnswer4)
-    console.log(wrongAnswer4)
-
-    function fisherYatesShuffle4(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswer4(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle4(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswer4.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_4);
-
-
-  //Card 5
-  class card_5 {
-
-    let correctAnswer5 = FlashcardData[4]
-    let wrongAnswer5 = FlashcardData[0-3, 5-9]
-    let randomAnswer5 = (getRandomAnswer5(wrongAnswer5, 3), correctAnswer5)
-
-    console.log(correctAnswer5)
-    console.log(wrongAnswer5)
-
-    function fisherYatesShuffle5(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswer5(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle5(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswer5.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_5);
-
-
-  //Card 6
-  class card_6 {
-
-    let correctAnswer6 = FlashcardData[5]
-    let wrongAnswer6 = FlashcardData[0-4, 6-9]
-    let randomAnswer6 = (getRandomAnswer6(wrongAnswer6, 3), correctAnswer6)
-
-    console.log(correctAnswer6)
-    console.log(wrongAnswer6)
-
-    function fisherYatesShuffle6(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswer6(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle6(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswer6.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_6);
-
-
-  //Card 7
-  class card_7 {
-
-    let correctAnswer7 = FlashcardData[6]
-    let wrongAnswer7 = FlashcardData[0-5, 7-9]
-    let randomAnswer7 = (getRandomAnswer7(wrongAnswer7, 3), correctAnswer7)
-
-    console.log(correctAnswer7)
-    console.log(wrongAnswer7)
-
-    function fisherYatesShuffle7(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswer7(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle7(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswer7.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_7);
-
-
-  //Card 8
-  class card_8 {
-
-    let correctAnswer8 = FlashcardData[7]
-    let wrongAnswer8 = FlashcardData[0-6, 8-9]
-    let randomAnswer8 = (getRandomAnswer8(wrongAnswer8, 3), correctAnswer8)
-
-    console.log(correctAnswer8)
-    console.log(wrongAnswer8)
-
-    function fisherYatesShuffle8(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswer8(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle8(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswer8.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_8);
-
-
-  //Card 9
-  class card_9 {
-
-    let correctAnswer9 = FlashcardData[8]
-    let wrongAnswer9 = FlashcardData[0-7, 9]
-    let randomAnswer9 = (getRandomAnswer9(wrongAnswer9, 3), correctAnswer9)
-
-    console.log(correctAnswer9)
-    console.log(wrongAnswer9)
-
-    function fisherYatesShuffle9(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswer9(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle9(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswer9.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_9)
-
-
-  //Card 10
-  class card_10 {
-
-    let correctAnswer10 = FlashcardData[9]
-    let wrongAnswer10 = FlashcardData[0-9]
-    let randomAnswer10 = (getRandomAnswer10(wrongAnswer10, 3), correctAnswer10)
-
-    console.log(correctAnswer10)
-    console.log(wrongAnswer10)
-
-    function fisherYatesShuffle10(arr) {
-      for (let i = arr.length - 1; i > 0, i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
-
-    function getRandomAnswer10(arr, numChoices = 4) {
-      let shuffledArray = fisherYatesShuffle10(arr);
-      return shuffledArray.slice(0, numChoices);
-    }
-
-    console.log("Guess which cow this is!");
-    randomAnswer10.forEach((choice, index) => {
-        console.log(`${index + 1}, ${choice}`);
-    });
-  }
-
-  console.log(card_10)
-}
-
-console.log(flashcardDeck)
-
-
-const seedFlashcards = () => Flashcard.bulkCreate(FlashcardData);
-// WASN'T SURE WHAT TO PUT HERE 
-
-module.exports = seedFlashcards;
