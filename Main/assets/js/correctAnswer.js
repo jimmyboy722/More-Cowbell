@@ -1,5 +1,5 @@
 export function moreCowbell() {
-    console.log()
+    console.log();
 }
 
 function moreCowbell() {
