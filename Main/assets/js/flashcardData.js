@@ -95,6 +95,22 @@ const FlashcardData = [
 ];
 
 console.log(FlashcardData);
+console.log(FlashcardData[0]);
+console.log(FlashcardData[1]);
+console.log(FlashcardData[2]);
+console.log(FlashcardData[3]);
+console.log(FlashcardData[4]);
+console.log(FlashcardData[5]);
+console.log(FlashcardData[6]);
+console.log(FlashcardData[7]);
+console.log(FlashcardData[8]);
+console.log(FlashcardData[9]);
+
+const flashcardSource = document.getElementById('card-body').innerHTML;
+const flashcardTemplate = Handlebars.compile(source);
+const flashcardHTML = template(data);
+
+document.getElementById('FlashcardData').innerHTML = html;
 
 
 //Multiple Choice Connector

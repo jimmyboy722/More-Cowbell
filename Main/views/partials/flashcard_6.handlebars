@@ -1,0 +1,21 @@
+{{!-- Basic flashcard layout --}}
+<section class="card">
+    <a href="/Main/assets/js/flashcardData.js/{{FlashcardData[6]}}">
+        <header>{{title}}</header>
+
+        <div class="card-body">
+            {{!-- Cow photo --}}
+            <h3>{{Name}}</h3>
+
+            {{!-- Cow facts --}}
+            <ul>
+                <li>{{Origin}}</li>
+                <li>{{CoatType}}</li>
+                <li>{{Color}}</li>
+                <li>{{AvgWeight}}</li>
+                <li>{{Purpose}}</li>
+            </ul>
+            <img src="/Main/assets/images/{{filename}}" alt="{{description}}">
+        </div>
+    </a>
+</section>
