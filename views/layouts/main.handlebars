@@ -1,3 +1,4 @@
+{{!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +10,13 @@
 </head>
 
 <body>
-    {{!-- Page header --}}
+    
     <header>
         <h1>Moo-velous Facts</h1>
         <h3>An "udderly" amazing quiz!</h3>
     </header>
 
-    {{!-- Login/Logout buttons --}}
+    
     <nav>
         <a href="/">Home</a>
         {{#if loggedIn}}
@@ -25,20 +26,152 @@
         {{/if}}
     </nav>
 
-    {{!-- Quiz start --}}
+    
     <main>
-        <aside>
-            <h2>Start your quiz here!</h2>
-        </aside>
-        <div class="deck">
-            {{{body}}}
-        </div>
-        <br>
-    </main>
+  <aside>
+    <h2>Start your quiz here!</h2>
+  </aside>
+  <div id="cards-container" class="cards-container"></div>
+  <br>
+ </main>
+
+ <script id="card-template" type="text/x-handlebars-template">
+    {{#each flashcards}}
+    <section id="card">
+        <a href="/Main/assets/js/flashcardData.js/{{id}}">
+            <header>{{title}}</header>
+
+            <div class="card-body">
+                
+                <img src="/Main/assets/images/{{photo}}" alt="{{caption}}">
+                <h3>{{caption}}</h3>
+
+                <ul>
+                    <li>{{Origin}}</li>
+                    <li>{{CoatType}}</li>
+                    <li>{{Color}}</li>
+                    <li>{{AvgWeight}}</li>
+                    <li>{{Purpose}}</li>
+                </ul>
+
+            </div>
+        </a>
+    </section>
+    {{/each}}
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const FlashcardData = [
+        {
+            id: 0,
+            photo: '/Main/assets/images/durham cattle.jpeg',
+            title: 'A beautiful bovine',
+            caption: 'Guess this cow!',
+            Name: 'Durham Cattle',
+            Origin: 'Northeast England',
+            CoatType: 'Short',
+            Color: 'Red and White',
+            AvgWeight: '1300 lbs',
+            Purpose: 'Multipurpose',
+            
+        },
+        {
+            Card: card_2,
+            Name: 'Angus',
+            Origin: 'Scotland',
+            CoatType: 'Short',
+            Color: 'Black',
+            AvgWeight: '1200 lbs',
+            Purpose: 'Meat',
+        },
+        {
+            Card: card_3,
+            Name: 'Brahman Cattle',
+            Origin: 'India',
+            CoatType: 'Short',
+            Color: 'Light to dark Gray',
+            AvgWeight: '2000 lbs',
+            Purpose: 'Meat',
+        },
+        {
+            Card: card_4,
+            Name: 'Texas Longhorn',
+            Origin: 'USA',
+            CoatType: 'Short',
+            Color: 'Black & Red',
+            AvgWeight: '1100 lbs',
+            Purpose: 'High Fertility',
+        },
+        {
+            Card: card_5,
+            Name: 'Watusi',
+            Origin: 'East Africa',
+            CoatType: 'Short',
+            Color: 'Brown,Red,black',
+            AvgWeight: '1100 lbs',
+            Purpose: 'Multipurpose',
+        },
+        {
+            Card: card_6,
+            Name: 'Scottish Highland',
+            Origin: 'Scottland',
+            CoatType: 'Thick Double Coat',
+            Color: 'Red, Ginger, Black',
+            AvgWeight: '1150 lbs',
+            Purpose: 'Multipurpose',
+        },
+        {
+            Card: card_7,
+            Name: 'Piedmontese',
+            Origin: 'Italy',
+            CoatType: 'Short',
+            Color: 'White',
+            AvgWeight: '1300 lbs',
+            Purpose: 'Meat',
+        },
+        {
+            Card: card_8,
+            Name: 'Holstien',
+            Origin: 'Holland',
+            CoatType: 'Short',
+            Color: 'Black and White',
+            AvgWeight: '1500 lbs',
+            Purpose: 'Milk',
+        },
+        {
+            Card: card_9,
+            Name: 'Dexter', 
+            Origin: 'Southern Ireland',
+            CoatType: 'Short Coat', 
+            Color: 'Black',
+            AvgWeight: '800 lbs' ,
+            Purpose: 'Meat , milk',
+        },
+        {
+            Card: card_10,
+            Name: 'Gelbuieh', 
+            Origin: 'Baravia , Germany',
+            CoatType: 'Short Coat',
+            Color: 'Red',
+            AvgWeight: '1382 lbs',
+            Purpose: 'Meat, milk',
+        },
+        ];
+
+        const source = document.getElementById('card-template').innerHTML;
+        const template = Handlebars.compile(source);
+        const html = template({ flashcards : FlashcardData });
+        document.getElementById('cards-container').innerHTML.html;
+
+    });
+
+</script>
 
     {{#if loggedIn}}
-    
-    <script src="/js/logout.js"></script>
+
 </body>
 
 </html>
+--}}

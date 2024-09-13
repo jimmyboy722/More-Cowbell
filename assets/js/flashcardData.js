@@ -1,8 +1,11 @@
-
+document.addEventListener('DOMContentLoaded', () => {
 //Flashcard data
 const FlashcardData = [
   {
-    Card: card_1,
+    id: 0,
+    photo: '/Main/assets/images/durham cattle.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Durham Cattle',
     Origin: 'Northeast England',
     CoatType: 'Short',
@@ -12,7 +15,10 @@ const FlashcardData = [
       
   },
   {
-    Card: card_2,
+    id: 1,
+    photo: 'Main\assets\images\bull-Black-Angus.webp',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Angus',
     Origin: 'Scotland',
     CoatType: 'Short',
@@ -21,7 +27,10 @@ const FlashcardData = [
     Purpose: 'Meat',
   },
   {
-    Card: card_3,
+    id: 2,
+    photo: 'Main\assets\images\brahman.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Brahman Cattle',
     Origin: 'India',
     CoatType: 'Short',
@@ -30,7 +39,10 @@ const FlashcardData = [
     Purpose: 'Meat',
   },
   {
-    Card: card_4,
+    id: 3,
+    photo: 'Main\assets\images\longhorn_cattle.jpg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Texas Longhorn',
     Origin: 'USA',
     CoatType: 'Short',
@@ -39,7 +51,10 @@ const FlashcardData = [
     Purpose: 'High Fertility',
   },
   {
-    Card: card_5,
+    id: 4,
+    photo: 'Main\assets\images\Watusi.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Watusi',
     Origin: 'East Africa',
     CoatType: 'Short',
@@ -48,7 +63,10 @@ const FlashcardData = [
     Purpose: 'Multipurpose',
   },
   {
-    Card: card_6,
+    id: 5,
+    photo: 'Main\assets\images\scottish highland.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Scottish Highland',
     Origin: 'Scottland',
     CoatType: 'Thick Double Coat',
@@ -57,7 +75,10 @@ const FlashcardData = [
     Purpose: 'Multipurpose',
   },
   {
-    Card: card_7,
+    id: 6,
+    photo: 'Main\assets\images\piedmontese.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Piedmontese',
     Origin: 'Italy',
     CoatType: 'Short',
@@ -66,7 +87,10 @@ const FlashcardData = [
     Purpose: 'Meat',
   },
   {
-    Card: card_8,
+    id: 7,
+    photo: 'Main\assets\images\holestein.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Holstien',
     Origin: 'Holland',
     CoatType: 'Short',
@@ -75,7 +99,10 @@ const FlashcardData = [
     Purpose: 'Milk',
   },
   {
-    Card: card_9,
+    id: 8,
+    photo: 'Main\assets\images\Dexter.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Dexter', 
     Origin: 'Southern Ireland',
     CoatType: 'Short Coat', 
@@ -84,7 +111,10 @@ const FlashcardData = [
     Purpose: 'Meat , milk',
   },
   {
-    Card: card_10,
+    id: 9,
+    photo: 'Main\assets\images\gelbvieh.jpeg',
+    title: 'A beautiful bovine',
+    caption: 'Guess this cow!',
     Name: 'Gelbuieh', 
     Origin: 'Baravia , Germany',
     CoatType: 'Short Coat',
@@ -94,26 +124,48 @@ const FlashcardData = [
   },
 ];
 
-console.log(FlashcardData);
-console.log(FlashcardData[0]);
-console.log(FlashcardData[1]);
-console.log(FlashcardData[2]);
-console.log(FlashcardData[3]);
-console.log(FlashcardData[4]);
-console.log(FlashcardData[5]);
-console.log(FlashcardData[6]);
-console.log(FlashcardData[7]);
-console.log(FlashcardData[8]);
-console.log(FlashcardData[9]);
+const source = document.getElementById('card-template').innerHTML;
+const template = Handlebars.compile(source);
+function renderCard(data) {
+  const html = template({ flashcards : [data] });
+  document.getElementById('card-container').innerHTML = html
+}
+document.getElementById('randomFlashcardButton').addEventListener('click', function() {
+  let randomIndex = Math.floor(Math.random() * FlashcardData.length);
+  let randomFlashcard = FlashcardData[randomIndex];
 
-const flashcardSource = document.getElementById('card-body').innerHTML;
-const flashcardTemplate = Handlebars.compile(source);
-const flashcardHTML = template(data);
+  renderCard(randomFlashcard);
+});
 
-document.getElementById('FlashcardData').innerHTML = html;
 
+});
 
 //Multiple Choice Connector
+document.addEventListener('DOMContentLoaded', () => {
+  const flashcard = new Flashcard(0);
+  const source = document.getElementById('flashcard-template').innerHTML;
+  const template = Handlebars.compile(source);
+
+  function renderFlashcard(data) {
+    const html = template({ flashcard : data});
+    document.getElementById('answers').innerHTML = html;
+  }
+
+  renderFlashcard(flashcardData);
+
+  document.getElementById('answers').addEventListener('click', (event) => {
+    if (event.target && event.target.id === 'submitAnswer') {
+      const selectedOption = document.querySelector('input[name="flashcard_option"]:checked');
+      if (selectedOption) {
+        alert(`Are you sure you want to select ${selectedOption.value}?`);
+      } else {
+        alert('Don`t mess this up!');
+      }
+    }
+  });
+});
+
+/*
 const option_a = document.getElementByName('option_a');
 const option_b = document.getElementByName('option_b');
 const option_c = document.getElementByName('option_c');
@@ -210,28 +262,7 @@ option_d.addEventListener('click', function() {
       console.error("Please try again", err);
     });
 });
-
-
-
-
-//Randomly selects new card upon being clicked
-document.getElementById('randomFlashcardButton').addEventListener('click', function() {
-  let input = document.getElementById('flashcardInput');
-  if (input.isDefaultNamespace.length === 0) {
-      alert("Look at how far you've come!");
-      return;
-  }
-
-  let flashcards = input.flashcards;
-
-  let randomIndex = Math.floor(Math.random() * flashcards.length);
-
-  let randomFlashcard = flashcards[randomIndex];
-
-  document.getElementById('selectedFlashcard').textContent = "Select next flashcard: " + randomFlashcard.came
-});
-
-
+*/
 
 
 //Flashcards
@@ -327,4 +358,15 @@ const card_10 = new Flashcard(9);
 
 console.log(card_10);
 console.log(card_10.randomAnswers);
+
+
+
+
+//Randomly selects new card upon being clicked
+document.getElementById('randomFlashcardButton').addEventListener('click', function() {
+  let randomIndex = Math.floor(Math.random() * FlashcardData.length);
+  let randomFlashcard = FlashcardData[randomIndex];
+
+  document.getElementById('selectedArray').textContent = "Next Question: " + randomFlashcard.join[2, 3, 4, 5, 6];
+});
 
