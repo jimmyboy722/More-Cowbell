@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,6 @@
     <title>Moo-velous Facts</title>
     <link rel="stylesheet" href="./output.css">
     <link rel="animations" href="./animations.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 </head>
 
 <body>
@@ -34,13 +32,11 @@
     </aside>
     <div id="card-container"></div>
     <button id="randomFlashcardButton">Next!</button>
-</main>
 
- <script id="card-template" type="text/x-handlebars-template">
-    {{#if flashcards.length}}
+    {{#lengthGreaterThan flashcards 0}}
     <section class="card">
       <img src="{{flashcards.[0].photo}}" alt="{{flashcards.[0].caption}}">
-      <h2>{{flashcards.[0]title}}</h2>
+      <h2>{{flashcards.[0].title}}</h2>
       <p>{{flashcards.[0].caption}}</p>
         <ul>
           <li>{{flashcards.[0].Origin}}</li>
@@ -52,161 +48,21 @@
     </section>
     {{else}}
     <p>You broke it!</p>
-    {{/if}}
-</script>
+    {{/lengthGreaterThan}}
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
+    <section class="multipleChoice" id="answers">
+        <header>{{flashcard.card}}</header>
+        {{#randomValues flashcards 4}}
+            <input type="radio" id="option_{{@index}}" name="flashcard_option" value="{{this.Name}}">
+            <label for="option_{{@index}}">{{this.Name}}</label>
+            <br>
+        {{/randomValues}}
 
-        const FlashcardData = [
-        {
-            id: 0,
-            photo: './assets/images/durham cattle.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Durham Cattle',
-            Origin: 'Northeast England',
-            CoatType: 'Short',
-            Color: 'Red and White',
-            AvgWeight: '1300 lbs',
-            Purpose: 'Multipurpose',
-                
-        },
-        {
-            id: 1,
-            photo: './assets/images/bull-Black-Angus.webp',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Angus',
-            Origin: 'Scotland',
-            CoatType: 'Short',
-            Color: 'Black',
-            AvgWeight: '1200 lbs',
-            Purpose: 'Meat',
-        },
-        {
-            id: 2,
-            photo: './assets/images/brahman.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Brahman Cattle',
-            Origin: 'India',
-            CoatType: 'Short',
-            Color: 'Light to dark Gray',
-            AvgWeight: '2000 lbs',
-            Purpose: 'Meat',
-        },
-        {
-            id: 3,
-            photo: './assets/images/longhorn_cattle.jpg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Texas Longhorn',
-            Origin: 'USA',
-            CoatType: 'Short',
-            Color: 'Black & Red',
-            AvgWeight: '1100 lbs',
-            Purpose: 'High Fertility',
-        },
-        {
-            id: 4,
-            photo: './assets/images/Watusi.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Watusi',
-            Origin: 'East Africa',
-            CoatType: 'Short',
-            Color: 'Brown,Red,black',
-            AvgWeight: '1100 lbs',
-            Purpose: 'Multipurpose',
-        },
-        {
-            id: 5,
-            photo: './assets/images/scottish highland.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Scottish Highland',
-            Origin: 'Scottland',
-            CoatType: 'Thick Double Coat',
-            Color: 'Red, Ginger, Black',
-            AvgWeight: '1150 lbs',
-            Purpose: 'Multipurpose',
-        },
-        {
-            id: 6,
-            photo: './assets/images/piedmontese.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Piedmontese',
-            Origin: 'Italy',
-            CoatType: 'Short',
-            Color: 'White',
-            AvgWeight: '1300 lbs',
-            Purpose: 'Meat',
-        },
-        {
-            id: 7,
-            photo: './assets/images/holestein.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Holstien',
-            Origin: 'Holland',
-            CoatType: 'Short',
-            Color: 'Black and White',
-            AvgWeight: '1500 lbs',
-            Purpose: 'Milk',
-        },
-        {
-            id: 8,
-            photo: './assets/images/Dexter.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Dexter', 
-            Origin: 'Southern Ireland',
-            CoatType: 'Short Coat', 
-            Color: 'Black',
-            AvgWeight: '800 lbs' ,
-            Purpose: 'Meat , milk',
-        },
-        {
-            id: 9,
-            photo: './assets/images/gelbvieh.jpeg',
-            title: 'A beautiful bovine',
-            caption: 'Guess this cow!',
-            Name: 'Gelbuieh', 
-            Origin: 'Baravia , Germany',
-            CoatType: 'Short Coat',
-            Color: 'Red',
-            AvgWeight: '1382 lbs',
-            Purpose: 'Meat, milk',
-        },
-    ];
+        <button id="submitAnswer">Guess if you dare</button>
 
-        const source = document.getElementById('card-template').innerHTML;
-        const template = Handlebars.compile(source);
-        function renderCard(data) {
-            const html = template({ flashcards : [data] });
-            document.getElementById('card-container').innerHTML = html
-  }
+    </section>
+</main>
 
-});
-
-</script>
-
-<section class="multipleChoice" id="answers"></section>
-  <script id="flashcard-template" type="text/x-handlebars-template">
-  <header>{{flashcard.card}}</header>
-
-  {{#each flashcard.randomAnswers}}
-      <input type="radio" id="option_{{@index}}" name="flashcard_option" value="{{this}}">
-      <label for="option_{{@index}}">{{this}}</label>
-      <br>
-  {{/each}}
-
-  <button id="submitAnswer">Guess if you dare</button>
-
-  </script>
-</section>
 
 <script>
   class Flashcard {
