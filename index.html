@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moo-velous Facts</title>
-  <link rel="stylesheet" href="./output.css">
-  <link rel="animations" href="./animations.css">
+  <link rel="stylesheet" href="./assets/css/output.css">
+  <link rel="animations" href="./assets/css/animations.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 </head>
 
@@ -37,6 +37,8 @@
   <button id="randomFlashcardButton">Next!</button>
 </main>
 
+
+<!-- Handlebar for flashcards -->
   <script id="card-template" type="text/x-handlebars-template">
     {{#if flashcards.length}}
     <section class="card">
@@ -56,22 +58,81 @@
     {{/if}}
   </script>
 
-  <section class="multipleChoice" id="answers"></section>
-      <script id="flashcard-template" type="text/x-handlebars-template">
-      <header>{{flashcard.card}}</header>
+  <!-- JS for interpretting card data -->
 
-      {{#each flashcard.randomAnswers}}
-          <input type="radio" id="option_{{@index}}" name="flashcard_option" value="{{this}}">
-          <label for="option_{{@index}}">{{this}}</label>
-          <br>
-      {{/each}}
+  <script>
+    const source = document.getElementById('card-template').innerHTML;
+    const template = Handlebars.compile(source);
+      function renderCard(data) {
+    const html = template({ flashcards : [data] });
+    document.getElementById('card-container').innerHTML = html
+  }
+  </script>
 
-      <button id="submitAnswer">Guess if you dare</button>
+<!-- Handlebar for multiple choice -->
 
-      </script>
-    </section>
+<section class="multipleChoice" id="answers">
+  <script id="flashcard-template" type="text/x-handlebars-template">
+  <header>{{flashcard.card}}</header>
 
-  <script src="/Main/assets/js/flashcardData.js"></script>
+  {{#each flashcard.randomAnswers}}
+      <input type="radio" id="option_{{@index}}" name="flashcard_option" value="{{this}}">
+      <label for="option_{{@index}}">{{this}}</label>
+      <br>
+  {{/each}}
+
+  <button id="submitAnswer">Guess if you dare</button>
+
+  </script>
+</section>
+
+<!-- JS for multiple choice -->
+
+<script>
+  class Flashcard {
+  constructor(cardIndex) {
+    const cardData = flashcardData[cardIndex];
+    this.card = cardData.card;
+    this.correctAnswer = cardData.card;
+    this.wrongAnswers = this.getWrongAnswers(cardIndex);
+    this.randomAnswers = this.getRandomAnswers(this.wrongAnswers, this.correctAnswer);
+      
+  }
+
+  getWrongAnswers(cardIndex) {
+    const wrongAnswers = FlashcardData
+    .filter((_, index) => index !== cardIndex)
+    .map(card => card.origin);
+  return wrongAnswers;
+  }
+
+  fisherYatesShuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  getRandomAnswers(wrongAnswers, correctAnswer, numChoices = 4) {
+    const allAnswers = [...wrongAnswers, correctAnswer];
+    const shuffledArray = this.fisherYatesShuffle(allAnswers);
+    return shuffledArray.slice(0, numChoices);
+  }
+}
+</script>
+
+<!-- JS for random next card -->
+  <script>
+    document.getElementById('randomFlashcardButton').addEventListener('click', function() {
+    let randomIndex = Math.floor(Math.random() * flashcardData.length);
+    let randomFlashcard = flashcardData[randomIndex];
+
+    renderCard(randomFlashcard);
+    });
+  </script>
+
+  <script src="./assets/js/flashcardData.js"></script>
 
 
 </body>

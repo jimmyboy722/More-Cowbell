@@ -1,148 +1,149 @@
 document.addEventListener('DOMContentLoaded', () => {
 //Flashcard data
-const FlashcardData = [
-  {
-    id: 0,
-    photo: '/Main/assets/images/durham cattle.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Durham Cattle',
-    Origin: 'Northeast England',
-    CoatType: 'Short',
-    Color: 'Red and White',
-    AvgWeight: '1300 lbs',
-    Purpose: 'Multipurpose',
-      
-  },
-  {
-    id: 1,
-    photo: 'Main\assets\images\bull-Black-Angus.webp',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Angus',
-    Origin: 'Scotland',
-    CoatType: 'Short',
-    Color: 'Black',
-    AvgWeight: '1200 lbs',
-    Purpose: 'Meat',
-  },
-  {
-    id: 2,
-    photo: 'Main\assets\images\brahman.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Brahman Cattle',
-    Origin: 'India',
-    CoatType: 'Short',
-    Color: 'Light to dark Gray',
-    AvgWeight: '2000 lbs',
-    Purpose: 'Meat',
-  },
-  {
-    id: 3,
-    photo: 'Main\assets\images\longhorn_cattle.jpg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Texas Longhorn',
-    Origin: 'USA',
-    CoatType: 'Short',
-    Color: 'Black & Red',
-    AvgWeight: '1100 lbs',
-    Purpose: 'High Fertility',
-  },
-  {
-    id: 4,
-    photo: 'Main\assets\images\Watusi.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Watusi',
-    Origin: 'East Africa',
-    CoatType: 'Short',
-    Color: 'Brown,Red,black',
-    AvgWeight: '1100 lbs',
-    Purpose: 'Multipurpose',
-  },
-  {
-    id: 5,
-    photo: 'Main\assets\images\scottish highland.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Scottish Highland',
-    Origin: 'Scottland',
-    CoatType: 'Thick Double Coat',
-    Color: 'Red, Ginger, Black',
-    AvgWeight: '1150 lbs',
-    Purpose: 'Multipurpose',
-  },
-  {
-    id: 6,
-    photo: 'Main\assets\images\piedmontese.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Piedmontese',
-    Origin: 'Italy',
-    CoatType: 'Short',
-    Color: 'White',
-    AvgWeight: '1300 lbs',
-    Purpose: 'Meat',
-  },
-  {
-    id: 7,
-    photo: 'Main\assets\images\holestein.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Holstien',
-    Origin: 'Holland',
-    CoatType: 'Short',
-    Color: 'Black and White',
-    AvgWeight: '1500 lbs',
-    Purpose: 'Milk',
-  },
-  {
-    id: 8,
-    photo: 'Main\assets\images\Dexter.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Dexter', 
-    Origin: 'Southern Ireland',
-    CoatType: 'Short Coat', 
-    Color: 'Black',
-    AvgWeight: '800 lbs' ,
-    Purpose: 'Meat , milk',
-  },
-  {
-    id: 9,
-    photo: 'Main\assets\images\gelbvieh.jpeg',
-    title: 'A beautiful bovine',
-    caption: 'Guess this cow!',
-    Name: 'Gelbuieh', 
-    Origin: 'Baravia , Germany',
-    CoatType: 'Short Coat',
-    Color: 'Red',
-    AvgWeight: '1382 lbs',
-    Purpose: 'Meat, milk',
-  },
-];
+  const flashcardData = [
+    {
+      id: 0,
+      photo: './assets/images/durham cattle.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Durham Cattle',
+      Origin: 'Northeast England',
+      CoatType: 'Short',
+      Color: 'Red and White',
+      AvgWeight: '1300 lbs',
+      Purpose: 'Multipurpose',
+        
+    },
+    {
+      id: 1,
+      photo: './assets/images/bull-Black-Angus.webp',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Angus',
+      Origin: 'Scotland',
+      CoatType: 'Short',
+      Color: 'Black',
+      AvgWeight: '1200 lbs',
+      Purpose: 'Meat',
+    },
+    {
+      id: 2,
+      photo: './assets/images/brahman.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Brahman Cattle',
+      Origin: 'India',
+      CoatType: 'Short',
+      Color: 'Light to dark Gray',
+      AvgWeight: '2000 lbs',
+      Purpose: 'Meat',
+    },
+    {
+      id: 3,
+      photo: './assets/images/longhorn_cattle.jpg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Texas Longhorn',
+      Origin: 'USA',
+      CoatType: 'Short',
+      Color: 'Black & Red',
+      AvgWeight: '1100 lbs',
+      Purpose: 'High Fertility',
+    },
+    {
+      id: 4,
+      photo: './assets/images/Watusi.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Watusi',
+      Origin: 'East Africa',
+      CoatType: 'Short',
+      Color: 'Brown,Red,black',
+      AvgWeight: '1100 lbs',
+      Purpose: 'Multipurpose',
+    },
+    {
+      id: 5,
+      photo: './assets/images/scottish highland.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Scottish Highland',
+      Origin: 'Scottland',
+      CoatType: 'Thick Double Coat',
+      Color: 'Red, Ginger, Black',
+      AvgWeight: '1150 lbs',
+      Purpose: 'Multipurpose',
+    },
+    {
+      id: 6,
+      photo: './assets/images/piedmontese.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Piedmontese',
+      Origin: 'Italy',
+      CoatType: 'Short',
+      Color: 'White',
+      AvgWeight: '1300 lbs',
+      Purpose: 'Meat',
+    },
+    {
+      id: 7,
+      photo: './assets/images/holestein.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Holstien',
+      Origin: 'Holland',
+      CoatType: 'Short',
+      Color: 'Black and White',
+      AvgWeight: '1500 lbs',
+      Purpose: 'Milk',
+    },
+    {
+      id: 8,
+      photo: './assets/images/Dexter.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Dexter', 
+      Origin: 'Southern Ireland',
+      CoatType: 'Short Coat', 
+      Color: 'Black',
+      AvgWeight: '800 lbs' ,
+      Purpose: 'Meat , milk',
+    },
+    {
+      id: 9,
+      photo: './assets/images/gelbvieh.jpeg',
+      title: 'A beautiful bovine',
+      caption: 'Guess this cow!',
+      Name: 'Gelbuieh', 
+      Origin: 'Baravia , Germany',
+      CoatType: 'Short Coat',
+      Color: 'Red',
+      AvgWeight: '1382 lbs',
+      Purpose: 'Meat, milk',
+    },
+  ];
 
-const source = document.getElementById('card-template').innerHTML;
-const template = Handlebars.compile(source);
-function renderCard(data) {
-  const html = template({ flashcards : [data] });
-  document.getElementById('card-container').innerHTML = html
-}
-document.getElementById('randomFlashcardButton').addEventListener('click', function() {
-  let randomIndex = Math.floor(Math.random() * FlashcardData.length);
-  let randomFlashcard = FlashcardData[randomIndex];
+  console.log(flashcardData);
 
-  renderCard(randomFlashcard);
-});
+  const source = document.getElementById('card-template').innerHTML;
+  const template = Handlebars.compile(source);
+  function renderCard(data) {
+    const html = template({ flashcards : [data] });
+    document.getElementById('card-container').innerHTML = html
+  }
+  document.getElementById('randomFlashcardButton').addEventListener('click', function() {
+    let randomIndex = Math.floor(Math.random() * flashcardData.length);
+    let randomFlashcard = flashcardData[randomIndex];
 
+    renderCard(randomFlashcard);
+  });
 
 });
 
 //Multiple Choice Connector
 document.addEventListener('DOMContentLoaded', () => {
-  const flashcard = new Flashcard(0);
+  const flashcard = new flashcard(0);
   const source = document.getElementById('flashcard-template').innerHTML;
   const template = Handlebars.compile(source);
 
@@ -268,7 +269,7 @@ option_d.addEventListener('click', function() {
 //Flashcards
 class Flashcard {
   constructor(cardIndex) {
-    const cardData = FlashcardData[cardIndex];
+    const cardData = flashcardData[cardIndex];
     this.card = cardData.card;
     this.correctAnswer = cardData.card;
     this.wrongAnswers = this.getWrongAnswers(cardIndex);
@@ -361,7 +362,7 @@ console.log(card_10.randomAnswers);
 
 
 
-
+/*
 //Randomly selects new card upon being clicked
 document.getElementById('randomFlashcardButton').addEventListener('click', function() {
   let randomIndex = Math.floor(Math.random() * FlashcardData.length);
@@ -369,4 +370,4 @@ document.getElementById('randomFlashcardButton').addEventListener('click', funct
 
   document.getElementById('selectedArray').textContent = "Next Question: " + randomFlashcard.join[2, 3, 4, 5, 6];
 });
-
+*/
