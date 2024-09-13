@@ -1,0 +1,16 @@
+{{!-- Multiple choice options --}}
+    
+<section class="multipleChoice" id="answers">
+    <script id="flashcard-template" type="text/x-handlebars-template">
+    <header>{{flashcard.card}}</header>
+
+    {{#each flashcard.randomAnswers}}
+        <input type="radio" id="option_{{@index}}" name="flashcard_option" value="{{this}}">
+        <label for="option_{{@index}}">{{this}}</label>
+        <br>
+    {{/each}}
+
+    <button id="submitAnswer">Guess if you dare</button>
+
+    </script>
+</section>
