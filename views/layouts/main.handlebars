@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moo-velous Facts</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="animations" href="./animations.css">
+</head>
+
+<body>
+    {{!-- Page header --}}
+    <header>
+        <h1>Moo-velous Facts</h1>
+        <h3>An "udderly" amazing quiz!</h3>
+    </header>
+
+    {{!-- Login/Logout buttons --}}
+    <nav>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+    </nav>
+
+    {{!-- Quiz start --}}
+    <main>
+        <aside>
+            <h2>Start your quiz here!</h2>
+        </aside>
+        <div class="deck">
+            {{{body}}}
+        </div>
+        <br>
+    </main>
+
+    {{#if loggedIn}}
+    
+    <script src="/js/logout.js"></script>
+</body>
+
+</html>
