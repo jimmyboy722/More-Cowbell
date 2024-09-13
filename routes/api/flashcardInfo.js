@@ -6,7 +6,7 @@ const FlashcardData = require('../../models/Flashcard');
 app.use(express.json());
 
 
-app.get('/api/flashcardData', async (req, res) => {
+app.get('/flashcardData', async (req, res) => {
     try {
         const cardData = await cardData.findAll();
         res.status(200).json(cardData);
@@ -15,7 +15,7 @@ app.get('/api/flashcardData', async (req, res) => {
     }
 });
 
-app.post('/api/cardData', async (req, res) => {
+app.post('/cardData', async (req, res) => {
     try {
         const cardData = await FlashcardData.create({
             card: cardData.length +1,
@@ -32,7 +32,7 @@ app.post('/api/cardData', async (req, res) => {
         }
     });
 
-app.get('/api/cardData/:card', async (req, res) => {
+app.get('/cardData/:card', async (req, res) => {
     try {
         const cardData = await FlashcardData.findByPk(req.params.card);
         if (!cardData) {
@@ -45,7 +45,7 @@ app.get('/api/cardData/:card', async (req, res) => {
         }
 });
 
-app.put('/api/cardData:card', async (req, res) => {
+app.put('/cardData:card', async (req, res) => {
    try {
     const cardData = await FlashcardData.update(req.body, {
         where: {
