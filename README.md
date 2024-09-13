@@ -1,88 +1,44 @@
-# <ins> More Cow Bell!</ins>
-
-More Cow bell is a flash-card quizz game to keep you up to date on all things bovine!
-
----
-
-## <ins>Table of contents</ins>
-
-- [Installation](#Installation)
-- [Technologies used](#Technologies-used)
-- [Usage](#Usage)
-- [Contributing](#Contributing)
-- [License](#License)
-- [Documentation](#Documentation)
-- [In Summary](#In-Summary)
-
----
-
-## <ins>Installation</ins>
-
-In order to create More Cow Bell, we had to download the following:
-
-- <ins>Node.js</ins>. This is the runtime environment we used in conjunciton with our IDE's to code this project. You can download the current version of node.js [here](https://nodejs.org/en)
-
----
-
-## <ins>Technologies used</ins>
-
-1. Node.js: An asynchronous, event-driven javascript runtime environment used to build scalable network apps.
-<img width="302" alt="image" src="https://github.com/user-attachments/assets/25400799-9422-422d-b073-b433e72d74e0">
-
-2. Express.js: A lightweight routing framework that provides broad features for building web and mobile apps.
-
-3. Sequelize: An ORM (Object Relational Mapper) used in node.js used to work with SQL databases.
-
-4. Handlebars.js: A javaScript library used to make reusable website templates through HTML ad expressions.
-<img width="267" alt="image" src="https://github.com/user-attachments/assets/7fd035d1-672a-4365-bf2e-c789603c0153">
-
-5. Math.js: A math library for javaScript that we used to arrange the order of questions asked in our app.
-6. Tailwind: The CSS framework we used to create the styling of our app directly in HTML.
-<img width="197" alt="image" src="https://github.com/user-attachments/assets/f2111551-5317-4130-809a-01cbbfe05c7b">
-
-7. PostgreSQL: An open source relational data base management system (RDBMS) that uses SQL.
-<img width="217" alt="image" src="https://github.com/user-attachments/assets/33ce5ef9-80bf-40be-8cec-4946c197b4e5">
-
-8. Render: This is the cloud service we used to deploy the More Cow Bell Application
-<img width="267" alt="image" src="https://github.com/user-attachments/assets/a495f22b-451b-4c7a-9937-da6b3ed3cfcc">
+# MoreCowbells 
 
 
-## <ins>Usage</ins>
+* As A Developer , i want to Create an application where it will educate you in different breeds of cows flashcard style 
 
-- To use More Cow Bell, start by navigating to the website and, if you haven't already, create a user account.
-- If you already have a user account, sign in using your user credentials.
+* As a Developer , i want to make the site user friendly and able to record and save user data to keep high score counts in our databases 
 
----
 
-## <ins>Contributing</ins>
 
-The following are some ways in which you can participate in this project:
+* As a User, i want to be able to better my knowledge on cows by quizzing myself and be able to keep my high score safe 
 
-1. Take the quiz and have fun!
-2. Submit bugs and feature requests, and help verify as they are checked in
-3. Review source code changes
-4. Review the documentation and make pull requests for anything from typos to refactoring to additional and new content.
 
----
+## Description 
 
-## <ins>License</ins>
+ 
+* The motivation on making this project was to be able to create a app where one can come and quiz themselves and learn more about different cow breeds  
 
-- This is licensed under the MIT license
+* we went and built this project so we can show what we had learned and apply what we learned and made something to be easily accessable 
 
----
+* we learned mainly how to effectively work as a group on one single project and simultaneously work on one code and push and pull from the repo without any errors  
 
-## <ins>Documentation</ins>
+* it solves the problem of quizzing yourself and to better your knowledge on breeds of cows and do it all in one stop shop  
 
-The following resources will help you build a quality :flash-card app of your own!
+* we did learn how to work as a team remotely and learn how to susscesfully apply the knowledege we were taught in this part of the course 
 
-- [NPM's website for node packages](https://www.npmjs.com/package/package)
-- [Medium's article titled "A Step By Step Guide To Using Handlebars With Your Node JS App](https://waelyasmina.medium.com/a-guide-into-using-handlebars-with-your-express-js-application-22b944443b65)
-- [W3 Schools' PostgreSQL Tutorial](https://www.w3schools.com/postgresql/index.php)
+## Screenshot 
 
----
 
-## <ins>In-Summary</ins>
 
-The world is full of cows. The sooner you get to know the different kinds there are, how big they are, their purpose here on earth, etc, the sooner you will be able to impress you friends and win the highly coveted Cow King status!! Have fun, share your high score and keep it moo-ving!
+## Technologies used
 
-- [Link to video walkthrough]()
+* Tailwind 
+
+* Postgres  
+
+* Math.js
+
+* Render
+
+## link 
+
+ * REPO : 
+
+ * APP : 
