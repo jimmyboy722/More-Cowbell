@@ -1,19 +1,17 @@
 //setting Sequelize
-const Sequelize = require("sequelize");
+const { Sequelize } = require("sequelize");
 
 //making .ENV necessary
 require("dotenv").config();
 
 //designating Sequelize and .env info
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: "localhost",
-    dialect: "postgres",
-  }
-);
+const sequelize = new Sequelize({
+  host: "localhost",
+  port: "5432",
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  dialect: "postgres"
+});
 
 // FOR TESTING THE DATABASE CONNECTION
 sequelize
