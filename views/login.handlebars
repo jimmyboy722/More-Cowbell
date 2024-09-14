@@ -2,7 +2,7 @@
 <div class="row justify-space-between-md">
     <div class="loginCard">
         <h2 class="loginPage">Login</h2>
-        <form class="form login-form">
+        <form class="form login-form" id="login-form">
 
             {{!-- Username input --}}
             <div class="form-group">
@@ -24,4 +24,36 @@
     </div>
 </div>
 
-<script src="./js/login.js"></script>
+<script>
+    document.getElementById("login-form").addEventListener("submit", function (event) {
+        event.preventDefault()
+
+        // GET USERNAME
+        const username = document.getElementById("username-login").value
+
+        // GET PASSWORD
+        const password = document.getElementById("password-login").value
+
+        const body = JSON.stringify({ username, password })
+
+        fetch("/user/register", 
+        {
+             method: "POST", 
+             body: body,
+             headers: {
+                'Content-Type': 'application/json', // Set the content type to JSON
+            },
+        })
+            .then(function (value) {
+                // SAVE SOMETHING TO COOKIES
+                // REDIRECT TO /quiz
+                console.log(value)
+                if (value.status === 201) {
+                    window.location = "/quiz"
+                }
+            })
+            .catch(function (error) {
+                console.error(error)
+            })
+    })
+</script>

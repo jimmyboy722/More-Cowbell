@@ -1,8 +1,7 @@
-<!-- REGISTRATION FORM FOR NEW USERS-->
 <div class="row justify-space-between-md"></div>
     <div class="registerCard">
         <h2 class="loginPage">Login</h2>
-        <form class="form registration-form">
+        <form class="form registration-form" id="register-form">
 
             {{!-- CREATE USERNAME INPUT --}}
             <div class="form-group">
@@ -19,15 +18,50 @@
             {{!-- EMAIL ENTRY INPUT --}}
             <div class="form-group">
                 <label for="email-entry">Email:</label>
-                <input class="form-input" type="email" id="enter-email"/>
+                <input class="form-input" type="email" id="create-email"/>
             </div>
 
             {{!-- Login button --}}
             <div class="form-group">
-                <button class="btn btn-primary" type="submit">Register</button>
+                <button id="submit-register" class="btn btn-primary">Register</button>
             </div>
         </form>
     </div>
 </div>
 
-<script src="./js/login.js"></script>
+<script>
+    document.getElementById("register-form").addEventListener("submit", function (event) {
+        event.preventDefault()
+
+        // GET USERNAME
+        const username = document.getElementById("create-username").value
+
+        // GET PASSWORD
+        const password = document.getElementById("create-password").value
+
+        // GET EMAIL
+        const email = document.getElementById("create-email").value
+
+        const body = JSON.stringify({ username, password, email })
+
+        fetch("/user/register", 
+        {
+             method: "POST", 
+             body: body,
+             headers: {
+                'Content-Type': 'application/json', // Set the content type to JSON
+            },
+        })
+            .then(function (value) {
+                // SAVE SOMETHING TO COOKIES
+                // REDIRECT TO /quiz
+                console.log(value)
+                if (value.status === 201) {
+                    window.location = "/quiz"
+                }
+            })
+            .catch(function (error) {
+                console.error(error)
+            })
+    })
+</script>

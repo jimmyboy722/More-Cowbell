@@ -26,87 +26,34 @@
 </nav>
 
     
-<main>
-    <aside>
-        <h2>Start your quiz here!</h2>
-    </aside>
-    <div id="card-container"></div>
-    <button id="randomFlashcardButton">Next!</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moo-velous Facts</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="animations" href="./animations.css">
+</head>
 
-    {{#lengthGreaterThan flashcards 0}}
-    <section class="card">
-      <img src="{{flashcards.[0].photo}}" alt="{{flashcards.[0].caption}}">
-      <h2>{{flashcards.[0].title}}</h2>
-      <p>{{flashcards.[0].caption}}</p>
-        <ul>
-          <li>{{flashcards.[0].Origin}}</li>
-          <li>{{flashcards.[0].CoatType}}</li>
-          <li>{{flashcards.[0].Color}}</li>
-          <li>{{flashcards.[0].AvgWeight}}</li>
-          <li>{{flashcards.[0].Purpose}}</li>
-        </ul>
-    </section>
-    {{else}}
-    <p>You broke it!</p>
-    {{/lengthGreaterThan}}
+<body>
+  <header>
+      <h1>Moo-velous Facts</h1>
+      <h3>An "udderly" amazing quiz!</h3>
+  </header>
+  
+  <nav>
+      <a href="/">Home</a>
+      {{#if loggedIn}}
+      <button id="logout" class="btn-no-style">Logout</button>
+      {{else}}
+      <a href="/login">Login</a>
+      {{/if}}
+  </nav>
 
-    <section class="multipleChoice" id="answers">
-        <header>{{flashcard.card}}</header>
-        {{#randomValues flashcards 4}}
-            <input type="radio" id="option_{{@index}}" name="flashcard_option" value="{{this.Name}}">
-            <label for="option_{{@index}}">{{this.Name}}</label>
-            <br>
-        {{/randomValues}}
-
-        <button id="submitAnswer">Guess if you dare</button>
-
-    </section>
-</main>
-
-
-<script>
-  class Flashcard {
-  constructor(cardIndex) {
-    const cardData = flashcardData[cardIndex];
-    this.card = cardData.card;
-    this.correctAnswer = cardData.card;
-    this.wrongAnswers = this.getWrongAnswers(cardIndex);
-    this.randomAnswers = this.getRandomAnswers(this.wrongAnswers, this.correctAnswer);
-      
-  }
-
-  getWrongAnswers(cardIndex) {
-    const wrongAnswers = FlashcardData
-    .filter((_, index) => index !== cardIndex)
-    .map(card => card.origin);
-  return wrongAnswers;
-  }
-
-  fisherYatesShuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
-
-  getRandomAnswers(wrongAnswers, correctAnswer, numChoices = 4) {
-    const allAnswers = [...wrongAnswers, correctAnswer];
-    const shuffledArray = this.fisherYatesShuffle(allAnswers);
-    return shuffledArray.slice(0, numChoices);
-  }
-}
-</script>
-
-<script>
-    document.getElementById('randomFlashcardButton').addEventListener('click', function() {
-    let randomIndex = Math.floor(Math.random() * flashcardData.length);
-    let randomFlashcard = flashcardData[randomIndex];
-
-    renderCard(randomFlashcard);
-    });
-</script>
-
+  <main>
+    {{{body}}}
+  </main>
 </body>
 
 </html>

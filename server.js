@@ -172,9 +172,13 @@ const flashcards = [
 // Start with '/'
 app.use(routes);
 app.get("/", (req, res) => {
+  res.redirect("/user/login");
+});
+
+app.get("/quiz", (req, res) => {
   let randomIndex = Math.floor(Math.random() * flashcards.length);
   let randomFlashcard = flashcards[randomIndex];
-  res.render("login", {
+  res.render("quiz", {
     loggedIn: true,
     flashcards: flashcards,
     flashcard: randomFlashcard,
