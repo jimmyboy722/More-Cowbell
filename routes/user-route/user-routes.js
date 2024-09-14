@@ -4,6 +4,24 @@ const bcrypt = require("bcrypt");
 const User = require("../../models/User");
 const router = express.Router();
 
+// GET ROUTE FOR  RENDERING LOGIN FORM
+router.get("/login", (req, res) => {
+  try {
+    res.render("login");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET ROUTE FOR RENDERING REGISTRATION FORM
+router.get("/register", (req, res) => {
+  try {
+    res.render("register");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //POST ROUTE FOR USER REGISTRATION
 router.post("/register", async (req, res) => {
   try {
