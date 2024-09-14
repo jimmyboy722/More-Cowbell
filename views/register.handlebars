@@ -1,0 +1,33 @@
+<!-- REGISTRATION FORM FOR NEW USERS-->
+<div class="row justify-space-between-md"></div>
+    <div class="registerCard">
+        <h2 class="loginPage">Login</h2>
+        <form class="form registration-form">
+
+            {{!-- CREATE USERNAME INPUT --}}
+            <div class="form-group">
+                <label for="create-username">Username:</label>
+                <input class="form-input" type="text" id="create-username"/>
+            </div>
+
+            {{!-- PASSWORD CREATION INPUT --}}
+            <div class="form-group">
+                <label for="create-password">Password:</label>
+                <input class="form-input" type="password" id="create-password"/>
+            </div>
+
+            {{!-- EMAIL ENTRY INPUT --}}
+            <div class="form-group">
+                <label for="email-entry">Email:</label>
+                <input class="form-input" type="email" id="enter-email"/>
+            </div>
+
+            {{!-- Login button --}}
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="./js/login.js"></script>
