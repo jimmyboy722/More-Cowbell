@@ -49,7 +49,7 @@ app.set("views", path.join(__dirname, "views"));
 const flashcards = [
   {
     id: 0,
-    photo: "./assets/images/durham cattle.jpeg",
+    photo: "/assets/images/durham-cattle.jpeg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Durham Cattle",
@@ -61,7 +61,7 @@ const flashcards = [
   },
   {
     id: 1,
-    photo: "./assets/images/bull-Black-Angus.webp",
+    photo: "/assets/images/bull-Black-Angus.webp",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Angus",
@@ -73,7 +73,7 @@ const flashcards = [
   },
   {
     id: 2,
-    photo: "./assets/images/brahman.jpeg",
+    photo: "/assets/images/brahman.jpeg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Brahman Cattle",
@@ -85,7 +85,7 @@ const flashcards = [
   },
   {
     id: 3,
-    photo: "./assets/images/longhorn_cattle.jpg",
+    photo: "/assets/images/longhorn_cattle.jpg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Texas Longhorn",
@@ -97,7 +97,7 @@ const flashcards = [
   },
   {
     id: 4,
-    photo: "./assets/images/Watusi.jpeg",
+    photo: "/assets/images/Watusi.jpeg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Watusi",
@@ -109,7 +109,7 @@ const flashcards = [
   },
   {
     id: 5,
-    photo: "./assets/images/scottish highland.jpeg",
+    photo: "/assets/images/scottish highland.jpeg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Scottish Highland",
@@ -121,7 +121,7 @@ const flashcards = [
   },
   {
     id: 6,
-    photo: "./assets/images/piedmontese.jpeg",
+    photo: "/assets/images/piedmontese.jpeg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Piedmontese",
@@ -133,7 +133,7 @@ const flashcards = [
   },
   {
     id: 7,
-    photo: "./assets/images/holestein.jpeg",
+    photo: "/assets/images/holestein.jpeg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Holstien",
@@ -145,7 +145,7 @@ const flashcards = [
   },
   {
     id: 8,
-    photo: "./assets/images/Dexter.jpeg",
+    photo: "/assets/images/Dexter.jpeg",
     title: "A beautiful bovine",
     caption: "Guess this cow!",
     Name: "Dexter",

@@ -1,18 +1,18 @@
 <script id="card-template" type="text/x-handlebars-template">
-    {{#lengthGreaterThan flashcards 0}}
+    {{#if lengthGreaterThan flashcards 0}}
     <section class="card">
-      <img src="{{flashcards.[0].photo}}" alt="{{flashcards.[0].caption}}">
-      <h2>{{flashcards.[0].title}}</h2>
-      <p>{{flashcards.[0].caption}}</p>
+      <img src="{{flashcards[0].photo}}" alt="{{flashcards[0].caption}}">
+      <h5>{{flashcards[0].title}}</h5>
+      <p>{{flashcards[0].caption}}</p>
         <ul>
-          <li>{{flashcards.[0].Origin}}</li>
-          <li>{{flashcards.[0].CoatType}}</li>
-          <li>{{flashcards.[0].Color}}</li>
-          <li>{{flashcards.[0].AvgWeight}}</li>
-          <li>{{flashcards.[0].Purpose}}</li>
+          <li>{{flashcards[0].Origin}}</li>
+          <li>{{flashcards[0].CoatType}}</li>
+          <li>{{flashcards[0].Color}}</li>
+          <li>{{flashcards[0].AvgWeight}}</li>
+          <li>{{flashcards[0].Purpose}}</li>
         </ul>
     </section>
     {{else}}
     <p>You broke it!</p>
-    {{/lengthGreaterThan}}
+    {{/if}}
 </script>
