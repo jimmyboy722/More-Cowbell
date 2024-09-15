@@ -1,9 +1,11 @@
+const { mod } = require('mathjs');
+
 document.addEventListener('DOMContentLoaded', () => {
 //Flashcard data
   const flashcardData = [
     {
       id: 0,
-      photo: './assets/images/durham cattle.jpeg',
+      photo: '/assets/images/durham-cattle.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Durham Cattle',
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 1,
-      photo: './assets/images/bull-Black-Angus.webp',
+      photo: '/assets/images/bull-Black-Angus.webp',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Angus',
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 2,
-      photo: './assets/images/brahman.jpeg',
+      photo: '/assets/images/brahman.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Brahman Cattle',
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 3,
-      photo: './assets/images/longhorn_cattle.jpg',
+      photo: '/assets/images/longhorn_cattle.jpg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Texas Longhorn',
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 4,
-      photo: './assets/images/Watusi.jpeg',
+      photo: '/assets/images/Watusi.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Watusi',
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 5,
-      photo: './assets/images/scottish highland.jpeg',
+      photo: '/assets/images/scottish highland.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Scottish Highland',
@@ -76,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 6,
-      photo: './assets/images/piedmontese.jpeg',
+      photo: '/assets/images/piedmontese.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Piedmontese',
@@ -88,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 7,
-      photo: './assets/images/holestein.jpeg',
+      photo: '/assets/images/holestein.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Holstien',
@@ -100,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 8,
-      photo: './assets/images/Dexter.jpeg',
+      photo: '/assets/images/Dexter.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Dexter', 
@@ -112,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 9,
-      photo: './assets/images/gelbvieh.jpeg',
+      photo: '/assets/images/gelbvieh.jpeg',
       title: 'A beautiful bovine',
       caption: 'Guess this cow!',
       Name: 'Gelbuieh', 
@@ -142,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //Multiple Choice Connector
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   const flashcard = new flashcard(0);
   const source = document.getElementById('flashcard-template').innerHTML;
   const template = Handlebars.compile(source);
@@ -154,119 +156,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderFlashcard(flashcardData);
 
-  document.getElementById('answers').addEventListener('click', (event) => {
+  document.getElementById('submitAnswer').addEventListener('click', (event) => {
     if (event.target && event.target.id === 'submitAnswer') {
       const selectedOption = document.querySelector('input[name="flashcard_option"]:checked');
       if (selectedOption) {
         alert(`Are you sure you want to select ${selectedOption.value}?`);
+        try {
+          const module = import('./correctAnswer');
+          module.moreCowbell();
+        } catch (error) {
+          console.error('Why did you break this? Come on, seriously', error);
+        }
       } else {
         alert('Don`t mess this up!');
+        try {
+          const module = import('./comeSoFar');
+          module.comeSoFar();
+        } catch (error) {
+          console.error('Now you`ve really done it, you just HAD to break it');
+        }
       }
     }
   });
-});
+});*/
 
-/*
-const option_a = document.getElementByName('option_a');
-const option_b = document.getElementByName('option_b');
-const option_c = document.getElementByName('option_c');
-const option_d = document.getElementByName('option_d');
+function renderFlashcard(data) {
+  const html = template({ flashcard : data });
+  document.getElementById('answers').innerHTML = html;
 
-
-
-//event listeners for buttons
-
-option_a.addEventListener('click', function() {
-  const importModule = condition => {
-    if ( condition ) {
-      return import('/Main/assets/js/correctAnswer.js');
-    } else {
-      return import('/Main/assets/js/comeSoFar.js');
-    }
-  };
-
-  importModule(true)
-    .then(module => {
-      if (module.moreCowbell) {
-        module.moreCowbell();
-      } else if (module.comeSoFar) {
-        module.comeSoFar();
+  document.getElementById('submitAnswer').addEventListener('click', async (event) => {
+    if (event.target && event.target.id === 'submitAnswer') {
+      const selectedOption = document.querySelector('input[name="flashcard_option"]:checked');
+      if (selectedOption) {
+        alert(`Are you sure you want to select ${selectedOption.value}?`);
+        try {
+          const module = await import('./correctAnswer');
+          module.moreCowbell();
+        } catch (error) {
+          console.error('Why did you break this? Come on, seriously',);
+        }
+      } else {
+        alert('Do NOT mess this up!');
+        try {
+          const module = await import('./comeSoFar');
+          module.comeSoFar();
+        } catch (error) {
+          console.error('Now you`ve really done it, you just HAD to break it');
+        }
+        }
       }
-    })
-    .catch(err => {
-      console.error("Please try again", err);
-    });
-});
-
-option_b.addEventListener('click', function() {
-  const importModule = condition => {
-    if ( condition ) {
-      return import('/Main/assets/js/correctAnswer.js');
-    } else {
-      return import('/Main/assets/js/comeSoFar.js');
     }
-  };
+  )};
 
-  importModule(true)
-    .then(module => {
-      if (module.moreCowbell) {
-        module.moreCowbell();
-      } else if (module.comeSoFar) {
-        module.comeSoFar();
-      }
-    })
-    .catch(err => {
-      console.error("Please try again", err);
-    });
+renderFlashcard(flashcardData);
+
+
+//Randomly selects new card upon being clicked
+document.getElementById('randomFlashcardButton').addEventListener('click', function() {
+  let randomIndex = Math.floor(Math.random() * FlashcardData.length);
+  let randomFlashcard = FlashcardData[randomIndex];
+
+  document.getElementById('selectedArray').textContent = "Next Question: " + randomFlashcard.join[2, 3, 4, 5, 6];
 });
 
-option_c.addEventListener('click', function() {
-  const importModule = condition => {
-    if ( condition ) {
-      return import('/Main/assets/js/correctAnswer.js');
-    } else {
-      return import('/Main/assets/js/comeSoFar.js');
-    }
-  };
-
-  importModule(true)
-    .then(module => {
-      if (module.moreCowbell) {
-        module.moreCowbell();
-      } else if (module.comeSoFar) {
-        module.comeSoFar();
-      }
-    })
-    .catch(err => {
-      console.error("Please try again", err);
-    });
-});
-
-option_d.addEventListener('click', function() {
-  const importModule = condition => {
-    if ( condition ) {
-      return import('/Main/assets/js/correctAnswer.js');
-    } else {
-      return import('/Main/assets/js/comeSoFar.js');
-    }
-  };
-
-  importModule(true)
-    .then(module => {
-      if (module.moreCowbell) {
-        module.moreCowbell();
-      } else if (module.comeSoFar) {
-        module.comeSoFar();
-      }
-    })
-    .catch(err => {
-      console.error("Please try again", err);
-    });
-});
-*/
 
 
-//Flashcards
+//Flashcards correct/wrong answer thing
 class Flashcard {
   constructor(cardIndex) {
     const cardData = flashcardData[cardIndex];
@@ -362,12 +317,6 @@ console.log(card_10.randomAnswers);
 
 
 
-/*
-//Randomly selects new card upon being clicked
-document.getElementById('randomFlashcardButton').addEventListener('click', function() {
-  let randomIndex = Math.floor(Math.random() * FlashcardData.length);
-  let randomFlashcard = FlashcardData[randomIndex];
 
-  document.getElementById('selectedArray').textContent = "Next Question: " + randomFlashcard.join[2, 3, 4, 5, 6];
-});
-*/
+
+

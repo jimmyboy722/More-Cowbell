@@ -4,13 +4,13 @@
     <script id="flashcard-template" type="text/x-handlebars-template">
     <header>{{flashcard.card}}</header>
 
-    {{#randomValues flashcards 4}}
+    {{#each randomValues flashcards 4}}
             <input type="radio" id="option_{{@index}}" name="flashcard_option" value="{{this.Name}}">
             <label for="option_{{@index}}">{{this.Name}}</label>
             <br>
-        {{/randomValues}}
 
-    <button id="submitAnswer">Guess if you dare</button>
+            <button id="submitAnswer">Guess if you dare</button>
+        {{/each}}
 
     </script>
 </section>
