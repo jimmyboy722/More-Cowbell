@@ -5,14 +5,21 @@ const { Sequelize } = require("sequelize");
 require("dotenv").config();
 
 //designating Sequelize and .env info
-const sequelize = new Sequelize({
-  host: "localhost",
-  port: "5432",
-  database: process.env.DB_NAME,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  dialect: "postgres",
-});
+let sequelize;
+
+if (process.env.DB_URL) {
+  sequelize = new Sequelize(process.env.DB_URL);
+} else {
+  sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+      host: "localhost",
+      dialect: "postgres",
+    }
+  );
+}
 
 // FOR TESTING THE DATABASE CONNECTION
 sequelize
